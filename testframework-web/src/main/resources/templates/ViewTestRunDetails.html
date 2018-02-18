@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Test Details</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+    <script src="/webjars/jquery/3.2.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header"><a class="navbar-brand" href="/">SG Testing Management Platform</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-menubuilder">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="/test/">Test Overview</a>
+                    </li>
+                    <li><a href="/test/upload">Upload Test</a>
+                    </li>
+                    <li class="active"><a href="#">Run Details</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h1>Test run detail for:  <span th:text="${testRun.test.testName}" th:remove="tag" /></h1>
+
+    <div th:if="${message}">
+        <h2 th:text="${message}"/>
+    </div>
+
+    <b>Test run ID: </b> <span th:text="${testRun.id}" th:remove="tag"></span>
+    <hr/>
+    <b>Start time: </b><span th:text="${testRun.startDate}"  th:remove="tag"></span>
+    <hr/>
+    <b>End time: </b><span th:text="${testRun.endDate}" th:remove="tag"></span>
+    <hr/>
+    <b>Evaluation: </b><span th:text="${testRun.evaluation}" th:remove="tag"></span>
+    <hr/>
+    <b>Status: </b><span th:text="${testRun.testRunStatus}" th:remove="tag"></span>
+    <hr/>
+    <span>
+        <a th:if="${testRun!= null and testRun.testRunStatus == T(testframework.testplatform.dal.entities.TestRunStatus).CREATED}"
+           th:href="@{/testrun/runnow/{id}(id=${testRun.id})}" >RUN NOW</a>
+        <a th:unless="${testRun!= null and testRun.testRunStatus == T(testframework.testplatform.dal.entities.TestRunStatus).CREATED}"
+           th:href="@{/test/run/{id}(id=${testRun.test.id})}" >
+            RE-RUN
+        </a>
+    </span>
+
+
+
+</div>
+</body>
+</html>

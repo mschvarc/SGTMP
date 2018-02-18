@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+    <script src="/webjars/jquery/3.2.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div class="container">
+
+    <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header"><a class="navbar-brand" href="/">SG Testing Management Platform</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-menubuilder">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="/test/">Test Overview</a>
+                    </li>
+                    <li class="active"><a href="/test/upload">Upload Test</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h1>Create Test</h1>
+    <div th:if="${message}">
+        <h2 th:text="${message}"/>
+    </div>
+
+
+    <!--/*@thymesVar id="TestUpload" type="testframework.testplatform.web.models.TestUpload"*/-->
+    <form th:action="@{/test/upload}" th:object="${TestUpload}" method="post"
+          enctype="multipart/form-data">
+        <table class="table">
+            <tr>
+                <td>Test Name:</td>
+                <td><input type="text" th:field="*{testName}"/></td>
+            </tr>
+            <tr>
+                <td>Test Description:</td>
+                <td><input type="text" th:field="*{testDescription}"/></td>
+            </tr>
+
+            <tr>
+                <td>Simulation Configuration:</td>
+                <td><input type="file" name="file" th:field="*{simulationConfig}"/></td>
+            </tr>
+
+            <tr>
+                <td>Simulators:</td>
+                <td><input type="file" name="file" th:field="*{simulators}"/></td>
+            </tr>
+
+            <tr>
+                <td>Models:</td>
+                <td><input type="file" name="file" th:field="*{models}"/></td>
+            </tr>
+
+            <tr>
+                <td>Topology:</td>
+                <td><input type="file" name="file" th:field="*{wires}"/></td>
+            </tr>
+
+            <tr>
+                <td>Test Configuration:</td>
+                <td><input type="file" name="file" th:field="*{testConfig}"/></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <button type="submit" class="btn btn-lg btn-default">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

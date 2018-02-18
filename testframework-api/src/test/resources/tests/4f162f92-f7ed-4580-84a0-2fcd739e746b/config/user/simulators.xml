@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<simulators>
+        <simulator>
+        <id>Simulator1</id>
+        <type>connect</type> <!-- connect / cmd / python -->
+        <address>127.0.0.1:5671</address>
+        <additionalWorldParams>
+            <param>
+                <key>step_size</key>
+                <value>1</value>
+            </param>
+            <param>
+                <key>eid_prefix</key>
+                <value>Java1</value>
+            </param>
+        </additionalWorldParams>
+    </simulator>
+
+    <simulator>
+        <id>Simulator2</id>
+        <type>connect</type> <!-- connect / cmd / python -->
+        <address>127.0.0.1:5672</address>
+        <additionalWorldParams>
+            <param>
+                <key>step_size</key>
+                <value>1</value>
+            </param>
+            <param>
+                <key>eid_prefix</key>
+                <value>Java2</value>
+            </param>
+        </additionalWorldParams>
+    </simulator>
+
+    <simulator>
+        <id>GlobalTestEvaluatorSimulator</id>
+        <type>connect</type> <!-- connect / cmd / python -->
+        <address>127.0.0.1:5679</address>
+        <additionalWorldParams>
+            <param>
+                <key>step_size</key>
+                <value>1</value>
+            </param>
+        </additionalWorldParams>
+    </simulator>
+
+</simulators>

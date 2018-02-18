@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wiring>
+    <connection>
+        <source>
+            <simulatorID>Simulator1</simulatorID>
+            <modelID>Model1</modelID>
+            <outputName>val</outputName>
+            <modelIndex>0</modelIndex>
+        </source>
+        <destination>
+            <simulatorID>Simulator2</simulatorID>
+            <modelID>Model2</modelID>
+            <inputName>sim1ValIN</inputName>
+            <modelIndex>0</modelIndex>
+        </destination>
+        <asyncRequired>true</asyncRequired>
+        <isDirect>true</isDirect>
+    </connection>
+
+    <connection>
+        <source>
+            <simulatorID>Simulator2</simulatorID>
+            <modelID>Model2</modelID>
+            <outputName>sim1DeltaOUT</outputName>
+            <modelIndex>0</modelIndex>
+        </source>
+        <destination>
+            <simulatorID>Simulator1</simulatorID>
+            <modelID>Model1</modelID>
+            <inputName>delta</inputName>
+            <modelIndex>0</modelIndex>
+        </destination>
+        <asyncRequired>true</asyncRequired>
+        <isDirect>false</isDirect>
+    </connection>
+
+    <connection>
+        <source>
+            <simulatorID>Simulator1</simulatorID>
+            <modelID>Model1</modelID>
+            <outputName>val</outputName>
+            <modelIndex>1</modelIndex>
+        </source>
+        <destination>
+            <simulatorID>Simulator2</simulatorID>
+            <modelID>Model2</modelID>
+            <inputName>sim1ValIN</inputName>
+            <modelIndex>1</modelIndex>
+        </destination>
+        <asyncRequired>true</asyncRequired>
+        <isDirect>true</isDirect>
+    </connection>
+
+    <connection>
+        <source>
+            <simulatorID>Simulator2</simulatorID>
+            <modelID>Model2</modelID>
+            <outputName>sim1DeltaOUT</outputName>
+            <modelIndex>1</modelIndex>
+        </source>
+        <destination>
+            <simulatorID>Simulator1</simulatorID>
+            <modelID>Model1</modelID>
+            <inputName>delta</inputName>
+            <modelIndex>1</modelIndex>
+        </destination>
+        <asyncRequired>true</asyncRequired>
+        <isDirect>false</isDirect>
+    </connection>
+</wiring>

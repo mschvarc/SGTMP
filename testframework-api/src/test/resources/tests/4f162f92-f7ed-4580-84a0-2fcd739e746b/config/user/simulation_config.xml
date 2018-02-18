@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<simulation>
+    <stepsToPerform>20</stepsToPerform>
+    <timeUnit>second</timeUnit>
+    <simulationSpeed>
+        <isRealtime>false</isRealtime>
+        <strictRealtime>true</strictRealtime>
+        <realtimeFactor>1</realtimeFactor>
+    </simulationSpeed>
+</simulation>

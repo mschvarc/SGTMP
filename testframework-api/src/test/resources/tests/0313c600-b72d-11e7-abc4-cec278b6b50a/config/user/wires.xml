@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wiring>
+
+    <connection>
+        <source>
+            <simulatorID>SimulatorArduino</simulatorID>
+            <modelID>Model_Arduino</modelID>
+            <outputName>ledStateOut</outputName>
+            <modelIndex>0</modelIndex>
+        </source>
+        <destination>
+            <simulatorID>SimulatorArduinoLed</simulatorID>
+            <modelID>ModelArduinoLedController</modelID>
+            <inputName>ledStateIn</inputName>
+            <modelIndex>0</modelIndex>
+        </destination>
+        <asyncRequired>true</asyncRequired>
+        <isDirect>true</isDirect>
+    </connection>
+
+    <connection>
+        <source>
+            <simulatorID>SimulatorArduino</simulatorID>
+            <modelID>Model_Arduino</modelID>
+            <outputName>voltageOut</outputName>
+            <modelIndex>0</modelIndex>
+        </source>
+        <destination>
+            <simulatorID>SimulatorArduinoLed</simulatorID>
+            <modelID>ModelArduinoLedController</modelID>
+            <inputName>voltageIn</inputName>
+            <modelIndex>0</modelIndex>
+        </destination>
+        <asyncRequired>false</asyncRequired>
+        <isDirect>true</isDirect>
+    </connection>
+
+    <connection>
+        <source>
+            <simulatorID>SimulatorArduinoLed</simulatorID>
+            <modelID>ModelArduinoLedController</modelID>
+            <outputName>ledStateOut</outputName>
+            <modelIndex>0</modelIndex>
+        </source>
+        <destination>
+            <simulatorID>SimulatorArduino</simulatorID>
+            <modelID>Model_Arduino</modelID>
+            <inputName>ledStateIn</inputName>
+            <modelIndex>0</modelIndex>
+        </destination>
+        <asyncRequired>true</asyncRequired>
+        <isDirect>false</isDirect>
+    </connection>
+
+
+</wiring>

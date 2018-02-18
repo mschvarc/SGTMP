@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Simulator1:Model1:measureValue1",
+    "simulatorId": "Simulator1",
+    "modelId": "Model1",
+    "modelIndex": 0,
+    "measureInputName": "name1"
+  },
+  {
+    "id": 2,
+    "name": "Simulator1:Model1:measureValue2",
+    "simulatorId": "Simulator1",
+    "modelId": "Model1",
+    "modelIndex": 0,
+    "measureInputName": "name2"
+  }
+]

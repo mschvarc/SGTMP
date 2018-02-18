@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<simulators>
+
+    <simulator>
+        <id>SimulatorArduinoLed</id>
+        <type>connect</type> <!-- connect / cmd / python -->
+        <address>127.0.0.1:5677</address>
+        <additionalWorldParams>
+            <param>
+                <key>step_size</key>
+                <value>1</value>
+            </param>
+            <param>
+                <key>eid_prefix</key>
+                <value>Java_Led</value>
+            </param>
+        </additionalWorldParams>
+    </simulator>
+
+    <simulator>
+        <id>SimulatorArduino</id>
+        <type>connect</type> <!-- connect / cmd / python -->
+        <address>127.0.0.1:5678</address>
+        <additionalWorldParams>
+            <param>
+                <key>eid_prefix</key>
+                <value>Java_Arduino</value>
+            </param>
+            <param>
+                <key>step_size</key>
+                <value>1</value>
+            </param>
+        </additionalWorldParams>
+    </simulator>
+
+
+
+    <simulator>
+        <id>GlobalTestEvaluatorSimulator</id>
+        <type>connect</type> <!-- connect / cmd / python -->
+        <address>127.0.0.1:5679</address>
+        <additionalWorldParams>
+            <param>
+                <key>step_size</key>
+                <value>1</value>
+            </param>
+        </additionalWorldParams>
+    </simulator>
+
+</simulators>

@@ -1,0 +1,4 @@
+Authors
+=======
+
+The author of mosaik-api-java is Stefan Scherfke <stefan.scherfke at offis.de>.

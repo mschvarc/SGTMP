@@ -1,0 +1,31 @@
+<config>
+    <test>
+        <name>TestAll</name>
+        <description>Example test to launch simulators</description>
+        <!-- processes to launch -->
+        <launch>
+            <redirectErrorStream>true</redirectErrorStream>
+            <printResults>true</printResults>
+
+            <process>
+                <path>java</path>
+                <args>-version</args>
+            </process>
+
+            <process>
+                <path>java</path>
+                <args>-cp ${MOSAIK_SIMULATORS_JAR}/sg-thesis-testframework-simulators-1.0.0-jar-with-dependencies.jar testframework.mosaik.example.simulators.Simulator1 127.0.0.1:5671 server</args>
+            </process>
+
+            <process>
+                <path>java</path>
+                <args>-cp ${MOSAIK_SIMULATORS_JAR}/sg-thesis-testframework-simulators-1.0.0-jar-with-dependencies.jar testframework.mosaik.example.simulators.Simulator2 127.0.0.1:5672 server</args>
+            </process>
+            <process>
+                <path>java</path>
+                <args>-cp ${MOSAIK_SIMULATORS_JAR}/sg-thesis-testframework-simulators-1.0.0-jar-with-dependencies.jar testframework.mosaik.simulators.GlobalTestEvaluatorSimulator 127.0.0.1:5679 server</args>
+            </process>
+
+        </launch>
+    </test>
+</config>

@@ -1,0 +1,15 @@
+<config>
+    <test>
+        <name>test_name</name>
+        <description>description</description>
+        <launch>
+            <process>
+                <path>pathname</path>
+                <args>abcd ${key1} defgh</args>
+                <params>ijkl ${key1} ${key2} mnop</params>
+                <testing>${key3}</testing>
+            </process>
+        </launch>
+    </test>
+    <!-- comment ${key1} ${key2} -->
+</config>

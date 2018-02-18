@@ -1,0 +1,13 @@
+<config>
+    <variables>
+        <variable>
+            <key>MOSAIK_SIMULATORS_JAR</key>
+            <value>/home/thesis/SGTMP/testframework-simulators/target</value>
+        </variable>
+        <variable>
+            <key>CONFIGFILES_ROOT</key>
+            <value>/home/thesis/SGTMP/configfiles</value>
+        </variable>
+    </variables>
+
+</config>
