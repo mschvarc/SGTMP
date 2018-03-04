@@ -15,15 +15,15 @@
 
     <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
         <div class="container-fluid">
-            <div class="navbar-header"><a class="navbar-brand" href="/">SG Testing Management Platform</a>
+            <div class="navbar-header"><a class="navbar-brand" href="/java">SG Testing Management Platform</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </button>
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="active"><a href="/test/">Test Overview</a>
+                    <li class="active"><a href="/java/test/">Test Overview</a>
                     </li>
-                    <li><a href="/test/upload">Upload Test</a>
+                    <li><a href="/java/test/upload">Upload Test</a>
                     </li>
                 </ul>
             </div>
@@ -47,8 +47,8 @@
                 <tr>
                     <td th:text="${test.testName}"></td>
                     <td th:text="${test.testDescription}"></td>
-                    <td><a th:href="@{/test/run/{id}(id=${test.id})}">ENQUEUE</a></td>
-                    <td><a th:href="@{/test/view/{id}(id=${test.id})}">VIEW ALL RUNS</a></td>
+                    <td><a th:href="@{/java/test/run/{id}(id=${test.id})}">ENQUEUE</a></td>
+                    <td><a th:href="@{/java/test/view/{id}(id=${test.id})}">VIEW ALL RUNS</a></td>
                 </tr>
             </th:block>
         </th:block>
@@ -58,7 +58,7 @@
         &nbsp;
     </div>
 
-    <a th:href="@{/test/upload}" class="btn btn-default ">Upload new Test definition</a>
+    <a th:href="@{/java/test/upload}" class="btn btn-default ">Upload new Test definition</a>
 
 </div>
 </body>

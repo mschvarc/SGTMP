@@ -18,6 +18,7 @@ package testframework.testplatform.dal.entities.wireentities;
 
 import testframework.testplatform.dal.entities.BaseEntity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -26,9 +27,9 @@ public class WireConnectionEdge extends BaseEntity {
     private String inputName;
     private String outputName;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private WireModel source;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private WireModel destination;
 
     private boolean isDirect;

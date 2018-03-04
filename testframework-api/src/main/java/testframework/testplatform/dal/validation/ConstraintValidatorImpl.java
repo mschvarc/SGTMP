@@ -16,7 +16,6 @@
 
 package testframework.testplatform.dal.validation;
 
-import org.springframework.stereotype.Component;
 import testframework.testplatform.dal.exceptions.EntityValidationException;
 
 import javax.validation.ConstraintViolation;
@@ -32,7 +31,7 @@ import java.util.Set;
  *
  * @author Martin Schvarcbacher
  */
-@Component
+//@Component
 public class ConstraintValidatorImpl implements ConstraintValidator {
 
     private final Validator validator;

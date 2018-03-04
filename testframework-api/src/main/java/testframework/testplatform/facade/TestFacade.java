@@ -31,6 +31,16 @@ public interface TestFacade {
     @Async
     void runTest(String id) throws IOException;
 
+    TestDto findById(long id);
+
+    List<TestDto> findAll();
+
     @Transactional
-    void create(TestDto testDto);
+    TestDto create(TestDto testDto);
+
+    @Transactional
+    TestDto update(TestDto testDto);
+
+    @Transactional
+    TestDto delete(TestDto testDto);
 }

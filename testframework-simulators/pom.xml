@@ -48,6 +48,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
             <groupId>de.ofis.mosaik</groupId>
             <artifactId>mosaik-java-api</artifactId>
         </dependency>

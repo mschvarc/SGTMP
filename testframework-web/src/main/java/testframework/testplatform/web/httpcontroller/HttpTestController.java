@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package testframework.testplatform.web.controller;
+package testframework.testplatform.web.httpcontroller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -50,8 +50,8 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping(value = "/test")
-public class TestController {
+@RequestMapping(value = "/java/test")
+public class HttpTestController {
 
     private static final String FS = File.separator;
     private final StorageService storageService;
@@ -61,7 +61,7 @@ public class TestController {
 
 
     @Autowired
-    public TestController(StorageService storageService, TestUploader testUploader, TestFacade testFacade, TestRunFacade testRunFacade) {
+    public HttpTestController(StorageService storageService, TestUploader testUploader, TestFacade testFacade, TestRunFacade testRunFacade) {
         this.storageService = storageService;
         this.testUploader = testUploader;
         this.testFacade = testFacade;
@@ -92,7 +92,7 @@ public class TestController {
 
         model.addAttribute("message", "Started test ID: " + id);
 
-        return "redirect:/test/";
+        return "redirect:/java/test/";
     }
 
     @RequestMapping(value = "/view/{testID}", method = RequestMethod.GET)
@@ -121,7 +121,7 @@ public class TestController {
 
         if (bindingResult.hasErrors() || !model.isValid()) {
             redirectAttributes.addFlashAttribute("message", "Validation failed ");
-            return "redirect:/test/";
+            return "redirect:/java/test/";
         }
 
         TestDto test = testUploader.createSkeletonTest();
@@ -138,7 +138,7 @@ public class TestController {
 
         redirectAttributes.addFlashAttribute("message", "Created new Test: " + test.getId());
 
-        return "redirect:/test/";
+        return "redirect:/java/test/";
     }
 
     @ExceptionHandler(StorageFileNotFoundException.class)

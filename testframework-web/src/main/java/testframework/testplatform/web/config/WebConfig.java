@@ -31,7 +31,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import testframework.testplatform.PersistenceConfig;
-import testframework.testplatform.web.controller.AppErrorController;
+import testframework.testplatform.web.httpcontroller.AppErrorController;
 import testframework.testplatform.web.util.CustomAsyncExceptionHandler;
 
 import javax.transaction.Transactional;

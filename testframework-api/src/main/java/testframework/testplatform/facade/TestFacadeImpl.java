@@ -73,9 +73,40 @@ public class TestFacadeImpl implements TestFacade {
     }
 
     @Override
+    public List<TestDto> findAll() {
+        TestFilter filter = new TestFilter();
+        List<Test> tests = testService.find(filter);
+        return mapper.mapTo(tests, TestDto.class);
+    }
+
+    @Override
+    public TestDto findById(long id) {
+        Test test = testService.getById(id);
+        return mapper.mapTo(test, TestDto.class);
+    }
+
+    @Override
     @Transactional
-    public void create(TestDto testDto) {
+    public TestDto create(TestDto testDto) {
         Test test = mapper.mapTo(testDto, Test.class);
         testService.create(test);
+        return mapper.mapTo(test, TestDto.class);
     }
+
+    @Override
+    @Transactional
+    public TestDto update(TestDto testDto) {
+        Test test = mapper.mapTo(testDto, Test.class);
+        testService.update(test);
+        return mapper.mapTo(test, TestDto.class);
+    }
+
+    @Override
+    @Transactional
+    public TestDto delete(TestDto testDto) {
+        Test test = mapper.mapTo(testDto, Test.class);
+        testService.delete(test);
+        return mapper.mapTo(test, TestDto.class);
+    }
+
 }

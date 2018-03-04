@@ -18,13 +18,14 @@ package testframework.testplatform.dal.entities.wireentities;
 
 import testframework.testplatform.dal.entities.BaseEntity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class WireModel extends BaseEntity {
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private WireSimulator simulator;
     private String modelId;
     private int modelIndex;

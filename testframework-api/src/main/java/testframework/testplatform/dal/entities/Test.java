@@ -17,6 +17,7 @@
 package testframework.testplatform.dal.entities;
 
 import org.hibernate.validator.constraints.Length;
+import testframework.testplatform.dal.entities.wireentities.Topology;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -25,6 +26,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.validation.constraints.NotNull;
@@ -54,6 +56,10 @@ public class Test extends BaseEntity {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<TestStep> testSteps = new ArrayList<>();
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Topology topology;
+
     /**
      * Designates if deviation from test pass for even one step should result in permanent test failure
      */
@@ -124,6 +130,14 @@ public class Test extends BaseEntity {
 
     public void setTestSteps(List<TestStep> testSteps) {
         this.testSteps = new ArrayList<>(testSteps);
+    }
+
+    public Topology getTopology() {
+        return topology;
+    }
+
+    public void setTopology(Topology topology) {
+        this.topology = topology;
     }
 
     @Override

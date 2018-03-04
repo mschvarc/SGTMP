@@ -15,15 +15,15 @@
 
     <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
         <div class="container-fluid">
-            <div class="navbar-header"><a class="navbar-brand" href="/">SG Testing Management Platform</a>
+            <div class="navbar-header"><a class="navbar-brand" href="/java">SG Testing Management Platform</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </button>
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a href="/test/">Test Overview</a>
+                    <li><a href="/java/test/">Test Overview</a>
                     </li>
-                    <li><a href="/test/upload">Upload Test</a>
+                    <li><a href="/java/test/upload">Upload Test</a>
                     </li>
                     <li class="active"><a href="#">Run Details</a> </li>
                 </ul>
@@ -49,9 +49,9 @@
     <hr/>
     <span>
         <a th:if="${testRun!= null and testRun.testRunStatus == T(testframework.testplatform.dal.entities.TestRunStatus).CREATED}"
-           th:href="@{/testrun/runnow/{id}(id=${testRun.id})}" >RUN NOW</a>
+           th:href="@{/java/testrun/runnow/{id}(id=${testRun.id})}">RUN NOW</a>
         <a th:unless="${testRun!= null and testRun.testRunStatus == T(testframework.testplatform.dal.entities.TestRunStatus).CREATED}"
-           th:href="@{/test/run/{id}(id=${testRun.test.id})}" >
+           th:href="@{/java/test/run/{id}(id=${testRun.test.id})}">
             RE-RUN
         </a>
     </span>

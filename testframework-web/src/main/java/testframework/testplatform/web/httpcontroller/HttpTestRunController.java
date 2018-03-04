@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package testframework.testplatform.web.controller;
+package testframework.testplatform.web.httpcontroller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,28 +27,28 @@ import testframework.testplatform.facade.dto.TestRunDto;
 
 
 @Controller
-@RequestMapping(value = "/testrun")
-public class TestRunController {
+@RequestMapping(value = "/java/testrun")
+public class HttpTestRunController {
 
     private final TestRunFacade testRunFacade;
 
 
     @Autowired
-    public TestRunController(TestRunFacade testRunFacade) {
+    public HttpTestRunController(TestRunFacade testRunFacade) {
         this.testRunFacade = testRunFacade;
     }
 
     @RequestMapping(value = "/runnow/{testRunID}", method = RequestMethod.GET)
     public String runTestNow(@PathVariable(value = "testRunID") long id, Model model) {
         testRunFacade.startTestRun(id);
-        return "redirect:/testrun/view/" + id;
+        return "redirect:/java/testrun/view/" + id;
     }
 
     @RequestMapping(value = "/view/{testRunID}", method = RequestMethod.GET)
     public String viewTestRunDetails(@PathVariable(value = "testRunID") long id, Model model) {
         TestRunDto testRun = testRunFacade.getTestRun(id);
         if (testRun == null) {
-            return "redirect:/test/";
+            return "redirect:/java/test/";
         }
         model.addAttribute("testRun", testRun);
         return "ViewTestRunDetails";
