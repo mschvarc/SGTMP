@@ -17,5 +17,7 @@ $ docker run -p 8080:8080 -it {container id}
 
 
 ## License
-Apache License, Version 2.0
+GNU Lesser General Public License
+Version 2.1, February 1999
+
 
