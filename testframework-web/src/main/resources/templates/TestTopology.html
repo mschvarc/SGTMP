@@ -16,7 +16,9 @@
     <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
         <div class="container-fluid">
             <div class="navbar-header"><a class="navbar-brand" href="/java">SG Testing Management Platform</a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+                    <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                        class="icon-bar"></span><span class="icon-bar"></span>
                 </button>
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
@@ -30,36 +32,13 @@
         </div>
     </div>
 
-    <h1>Test Overview</h1>
+    <h1>Test Topology</h1>
     <div th:if="${message}">
         <h2 th:text="${message}"/>
     </div>
 
-    <table style="width:100%">
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Enqueue</th>
-            <th>View all</th>
-        </tr>
-        <th:block>
-            <th:block th:each="test : ${RunTest.tests} ">
-                <tr>
-                    <td th:text="${test.testName}"></td>
-                    <td th:text="${test.testDescription}"></td>
-                    <td><a th:href="@{/java/test/run/{id}(id=${test.id})}">ENQUEUE</a></td>
-                    <td><a th:href="@{/java/test/view/{id}(id=${test.id})}">VIEW ALL RUNS</a></td>
-                    <th><a th:href="@{/java/test/topology/{id}(id=${test.id})}">VIEW TOPOLOGY</a></th>
-                </tr>
-            </th:block>
-        </th:block>
-    </table>
-
-    <div class="form-group">
-        &nbsp;
+    <div th:utext="${svg}">
     </div>
-
-    <a th:href="@{/java/test/upload}" class="btn btn-default ">Upload new Test definition</a>
 
 </div>
 </body>

@@ -17,16 +17,17 @@
 package testframework.testplatform.facade;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import testframework.testplatform.test.TestRunEnqueuer;
 import testframework.testplatform.dal.entities.Test;
 import testframework.testplatform.dal.filter.TestFilter;
-import testframework.testplatform.mapper.Automapper;
 import testframework.testplatform.facade.dto.TestDto;
+import testframework.testplatform.mapper.Automapper;
 import testframework.testplatform.services.TestRunService;
 import testframework.testplatform.services.TestService;
+import testframework.testplatform.test.TestRunEnqueuer;
 
 import javax.transaction.Transactional;
 import java.io.IOException;
@@ -82,6 +83,7 @@ public class TestFacadeImpl implements TestFacade {
     @Override
     public TestDto findById(long id) {
         Test test = testService.getById(id);
+        Hibernate.initialize(test);
         return mapper.mapTo(test, TestDto.class);
     }
 

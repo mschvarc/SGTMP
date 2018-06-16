@@ -31,6 +31,8 @@ public class TestDto {
 
     private boolean oneStepPermanentFailure;
 
+    private TopologyDto topology;
+
     public void initializeUUID() {
         if (uuid == null) {
             uuid = UUID.randomUUID().toString();
@@ -56,6 +58,14 @@ public class TestDto {
 
     public void setTestName(String testName) {
         this.testName = testName;
+    }
+
+    public TopologyDto getTopology() {
+        return topology;
+    }
+
+    public void setTopology(TopologyDto topology) {
+        this.topology = topology;
     }
 
     @Override
