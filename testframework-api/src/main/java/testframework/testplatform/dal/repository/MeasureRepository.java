@@ -23,4 +23,6 @@ import java.util.List;
 
 public interface MeasureRepository extends EntityRepository<Measure> {
     void create(List<Measure> measures);
+
+    List<Measure> findAll();
 }

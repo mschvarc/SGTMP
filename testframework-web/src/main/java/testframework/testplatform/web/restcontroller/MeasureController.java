@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import testframework.testplatform.dal.entities.wireentities.Topology;
-import testframework.testplatform.facade.TopologyFacade;
+import testframework.testplatform.dal.entities.measure.Measure;
+import testframework.testplatform.facade.MeasureFacade;
 
 import java.util.List;
 
@@ -15,40 +15,40 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
-@RequestMapping("/api/topology")
-public class TopologyController {
+@RequestMapping("/api/measure")
+public class MeasureController {
 
     @Autowired
-    TopologyFacade facade;
+    MeasureFacade facade;
 
     @RequestMapping(path = "/findAll", produces = APPLICATION_JSON_VALUE, method = GET)
-    public List<Topology> findAll() {
+    public List<Measure> findAll() {
         return facade.findAll();
     }
 
-
-    @RequestMapping(path = "/findById/{topologyId}", produces = APPLICATION_JSON_VALUE, method = GET)
-    public Topology findById(@PathVariable("topologyId") long topologyId) {
-        Topology result = facade.byId(topologyId);
+    @RequestMapping(path = "/findById/{measureId}", produces = APPLICATION_JSON_VALUE, method = GET)
+    public Measure findById(@PathVariable("measureId") long measureId) {
+        Measure result = facade.byId(measureId);
         return result;
     }
 
     @RequestMapping(path = "/create", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE, method = POST)
-    public Topology createTopology(@RequestBody Topology topology) {
-        Topology result = facade.create(topology);
+    public Measure createMeasure(@RequestBody Measure measure) {
+        Measure result = facade.create(measure);
         return result;
     }
 
     @RequestMapping(path = "/update", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE, method = POST)
-    public Topology updateTopology(@RequestBody Topology topology) {
-        Topology result = facade.update(topology);
+    public Measure updateMeasure(@RequestBody Measure measure) {
+        Measure result = facade.update(measure);
         return result;
     }
 
     @RequestMapping(path = "/delete", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE, method = POST)
-    public Topology deleteTopology(@RequestBody Topology topology) {
-        Topology result = facade.delete(topology);
+    public Measure deleteMeasure(@RequestBody Measure measure) {
+        Measure result = facade.delete(measure);
         return result;
     }
+
 
 }

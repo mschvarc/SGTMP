@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import testframework.testplatform.PlatformConfiguration;
 import testframework.testplatform.configurationgenerator.TemplateProcessor;
 import testframework.testplatform.dal.entities.Test;
+import testframework.testplatform.dal.entities.TestRun;
+import testframework.testplatform.dal.entities.TestRunEvaluation;
+import testframework.testplatform.dal.entities.TestRunStatus;
 import testframework.testplatform.dal.entities.TestStep;
 import testframework.testplatform.dal.entities.measure.Measure;
 import testframework.testplatform.dal.entities.measure.MeasureAttribute;
@@ -35,6 +38,8 @@ import testframework.testplatform.selection.TestRunSelectionStrategy;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -74,7 +79,6 @@ public class SampleDataGenerator {
     ProcessLauncher processLauncher;
     @Autowired
     ObjectMapper mapper;
-
 
     @Autowired
     private PlatformConfiguration platformConfiguration;
@@ -142,9 +146,19 @@ public class SampleDataGenerator {
 
         testRepository.create(test);
 
+        TestRun testRun = new TestRun();
+        testRun.setTest(test);
+        testRun.setTestRunStatus(TestRunStatus.FINISHED);
+        testRun.setEvaluation(TestRunEvaluation.SUCCESS);
+        testRun.setStartDate(LocalDateTime.now().minus(100, ChronoUnit.MINUTES));
+        testRun.setEndDate(LocalDateTime.now());
+        testRunRepository.create(testRun);
+
         System.err.println(">>>added init test data");
 
-        return ResponseEntity.accepted().body("added test data, test:" + test.getId() + ", top:" + topology.getId());
+        return ResponseEntity.accepted().body("added test data, test:" + test.getId()
+                + ", testRun: " + testRun.getId()
+                + ", topology:" + topology.getId());
 
     }
 

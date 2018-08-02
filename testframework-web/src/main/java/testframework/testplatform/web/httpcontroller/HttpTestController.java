@@ -98,9 +98,11 @@ public class HttpTestController {
     @RequestMapping(value = "/view/{testID}", method = RequestMethod.GET)
     public String viewTest(@PathVariable(value = "testID") long id, Model model) {
 
+        TestDto test = testFacade.findById(id);
         List<TestRunDto> allTestRunsForTest = testRunFacade.getAllTestRunsForTest(id);
         TestRunsModel testRuns = new TestRunsModel();
         testRuns.setTestRuns(allTestRunsForTest);
+        model.addAttribute("TestModel", test);
         model.addAttribute("TestRunsModel", testRuns);
         return "ViewTestRunsForTest";
     }

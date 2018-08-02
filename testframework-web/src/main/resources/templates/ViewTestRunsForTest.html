@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <h1>Test runs for:  <span th:text="${TestRunsModel.testRuns[0].test.testName}" th:remove="tag" /></h1>
+    <h1>Test runs for:  <span th:text="${TestModel.testName}" th:remove="tag" /></h1>
 
     <div th:if="${message}">
         <h2 th:text="${message}"/>
