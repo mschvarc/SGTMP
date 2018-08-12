@@ -6,7 +6,11 @@ import testframework.testplatform.dal.entities.wireentities.Topology;
 import testframework.testplatform.dal.repository.TopologyRepository;
 import testframework.testplatform.mapper.Automapper;
 
+import javax.transaction.Transactional;
+import java.util.List;
+
 @Service
+@Transactional
 public class TopologyFacadeImpl implements TopologyFacade {
 
     private final Automapper mapper;
@@ -31,15 +35,18 @@ public class TopologyFacadeImpl implements TopologyFacade {
 
     @Override
     public Topology update(Topology topology) {
-        repository.create(topology);
+        repository.update(topology);
         return topology;
     }
 
     @Override
     public Topology delete(Topology topology) {
-        repository.create(topology);
+        repository.delete(topology);
         return topology;
     }
 
-
+    @Override
+    public List<Topology> findAll() {
+        return repository.findAll();
+    }
 }

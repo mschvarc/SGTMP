@@ -21,10 +21,12 @@ import org.springframework.stereotype.Repository;
 import testframework.testplatform.dal.entities.measure.Measure;
 import testframework.testplatform.dal.exceptions.EntityValidationException;
 import testframework.testplatform.dal.validation.ConstraintValidator;
-import testframework.testplatform.dal.validation.ConstraintValidatorImpl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
@@ -37,7 +39,7 @@ public class MeasureRepositoryImpl implements MeasureRepository {
 
 
     @Autowired
-    public MeasureRepositoryImpl(EntityManager entityManager, ConstraintValidatorImpl validator) {
+    public MeasureRepositoryImpl(EntityManager entityManager, ConstraintValidator validator) {
         if (entityManager == null || validator == null) {
             throw new IllegalArgumentException("entitymanager or validator is null");
         }
@@ -86,4 +88,15 @@ public class MeasureRepositoryImpl implements MeasureRepository {
             create(measure);
         }
     }
+
+    @Override
+    public List<Measure> findAll() {
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Measure> criteria = builder.createQuery(Measure.class);
+        Root<Measure> root = criteria.from(Measure.class);
+        criteria.select(root);
+        return entityManager.createQuery(criteria.select(root)).getResultList();
+    }
+
+
 }

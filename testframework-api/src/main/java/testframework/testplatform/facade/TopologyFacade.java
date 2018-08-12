@@ -2,6 +2,8 @@ package testframework.testplatform.facade;
 
 import testframework.testplatform.dal.entities.wireentities.Topology;
 
+import java.util.List;
+
 public interface TopologyFacade {
     Topology byId(long id);
 
@@ -10,4 +12,6 @@ public interface TopologyFacade {
     Topology update(Topology topology);
 
     Topology delete(Topology topology);
+
+    List<Topology> findAll();
 }

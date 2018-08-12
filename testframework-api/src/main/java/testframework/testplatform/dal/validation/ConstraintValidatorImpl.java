@@ -31,7 +31,6 @@ import java.util.Set;
  *
  * @author Martin Schvarcbacher
  */
-//@Component
 public class ConstraintValidatorImpl implements ConstraintValidator {
 
     private final Validator validator;

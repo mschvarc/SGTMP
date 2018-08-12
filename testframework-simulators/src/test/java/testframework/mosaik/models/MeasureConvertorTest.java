@@ -91,6 +91,7 @@ public class MeasureConvertorTest {
         name1.setMeasureType(MeasureType.ACTUAL);
         name1.setValue(40);
         name1.setMeasureAttribute(measureAttribute1);
+        name1.setUnit("miliVolts");
 
         Measure name2 = new Measure();
         name2.setMeasureType(MeasureType.ACTUAL);
