@@ -21,7 +21,6 @@ import org.springframework.stereotype.Repository;
 import testframework.testplatform.dal.entities.measure.MeasureAttribute;
 import testframework.testplatform.dal.exceptions.EntityValidationException;
 import testframework.testplatform.dal.validation.ConstraintValidator;
-import testframework.testplatform.dal.validation.ConstraintValidatorImpl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -36,7 +35,7 @@ public class MeasureAttributeRepositoryImpl implements MeasureAttributeRepositor
 
 
     @Autowired
-    public MeasureAttributeRepositoryImpl(EntityManager entityManager, ConstraintValidatorImpl validator) {
+    public MeasureAttributeRepositoryImpl(EntityManager entityManager, ConstraintValidator validator) {
         if (entityManager == null || validator == null) {
             throw new IllegalArgumentException("entitymanager or validator is null");
         }

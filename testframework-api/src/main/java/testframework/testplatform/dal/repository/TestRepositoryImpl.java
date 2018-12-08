@@ -23,7 +23,7 @@ import testframework.testplatform.dal.entities.Test_;
 import testframework.testplatform.dal.exceptions.EntityValidationException;
 import testframework.testplatform.dal.filter.TestFilter;
 import testframework.testplatform.dal.validation.ConstraintValidator;
-import testframework.testplatform.dal.validation.ConstraintValidatorImpl;
+import testframework.testplatform.dal.validation.ConstraintValidator;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -44,7 +44,7 @@ public class TestRepositoryImpl implements TestRepository {
 
 
     @Autowired
-    public TestRepositoryImpl(EntityManager entityManager, ConstraintValidatorImpl validator) {
+    public TestRepositoryImpl(EntityManager entityManager, ConstraintValidator validator) {
         if (entityManager == null || validator == null) {
             throw new IllegalArgumentException("entitymanager or validator is null");
         }

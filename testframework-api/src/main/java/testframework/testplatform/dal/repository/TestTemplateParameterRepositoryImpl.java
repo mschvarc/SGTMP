@@ -21,7 +21,7 @@ import org.springframework.stereotype.Repository;
 import testframework.testplatform.dal.entities.TestTemplateParameter;
 import testframework.testplatform.dal.exceptions.EntityValidationException;
 import testframework.testplatform.dal.validation.ConstraintValidator;
-import testframework.testplatform.dal.validation.ConstraintValidatorImpl;
+import testframework.testplatform.dal.validation.ConstraintValidator;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -34,7 +34,7 @@ public class TestTemplateParameterRepositoryImpl implements TestTemplateParamete
     private final ConstraintValidator validator;
 
     @Autowired
-    public TestTemplateParameterRepositoryImpl(EntityManager entityManager, ConstraintValidatorImpl validator) {
+    public TestTemplateParameterRepositoryImpl(EntityManager entityManager, ConstraintValidator validator) {
         if (entityManager == null || validator == null) {
             throw new IllegalArgumentException("entitymanager or validator is null");
         }

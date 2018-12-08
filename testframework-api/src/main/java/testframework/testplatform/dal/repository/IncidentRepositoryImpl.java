@@ -24,7 +24,7 @@ import testframework.testplatform.dal.entities.TestRun;
 import testframework.testplatform.dal.entities.TestRun_;
 import testframework.testplatform.dal.exceptions.EntityValidationException;
 import testframework.testplatform.dal.validation.ConstraintValidator;
-import testframework.testplatform.dal.validation.ConstraintValidatorImpl;
+import testframework.testplatform.dal.validation.ConstraintValidator;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -42,7 +42,7 @@ public class IncidentRepositoryImpl implements IncidentRepository {
     private final ConstraintValidator validator;
 
     @Autowired
-    public IncidentRepositoryImpl(EntityManager entityManager, ConstraintValidatorImpl validator) {
+    public IncidentRepositoryImpl(EntityManager entityManager, ConstraintValidator validator) {
         if (entityManager == null || validator == null) {
             throw new IllegalArgumentException("entitymanager or validator is null");
         }

@@ -122,11 +122,6 @@ public class PersistenceTestJPAConfig {
 
     @Bean
     ConstraintValidator constraintValidator() {
-        return constraintValidatorImpl();
-    }
-
-    @Bean
-    ConstraintValidatorImpl constraintValidatorImpl() {
         return new ConstraintValidatorImpl();
     }
 
